@@ -1,38 +1,15 @@
-#include <SFML/Graphics.hpp>
 #include <iostream>
+#include "Engine.h"
 
 int main() {
-    // Create a window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Game");
-
-    sf::Clock clock;
-    sf::Time t = clock.getElapsedTime();
-    double nUpdates = 0.0;
-    double frameInterval = 1000000/30;
-
-    // Main loop
-    while (window.isOpen()) {
-        // Event handling
-        sf::Event event;
-        while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
-
-        long dT = clock.getElapsedTime().asMicroseconds() - t.asMicroseconds();
-        t = clock.getElapsedTime();
-        nUpdates += dT / frameInterval;
-
-        // update
-        while(nUpdates >= 1.0) {
-            
-            nUpdates--;
-        }
-        //render
-        window.clear(sf::Color::Blue);
-        // Display the window contents
-        window.display();
-    }
-
+    Engine::startGameLoop();
     return 0;
+}
+
+void Engine::update() {
+    std::cout<<"bye"<<std::endl;
+}
+
+void Engine::draw() {
+    std::cout<<"hi"<<std::endl;
 }
