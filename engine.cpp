@@ -30,7 +30,7 @@ void Engine::startGameLoop() {
         }
         //render
         window.clear(sf::Color::Blue);
-        draw();
+        draw(&window);
         // Display the window contents
         window.display();
     }
